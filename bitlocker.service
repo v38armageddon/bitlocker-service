@@ -1,0 +1,16 @@
+[Unit]
+Description=Bitlocker Mount
+ConditionFileIsExecutable=/path/to/mount-bitlocker.sh
+After=network.target
+
+[Service]
+Type=oneshot
+# If needed, uncomment theses lines
+#User=root
+#Group=root
+ExecStart=/path/to/mount-bitlocker.sh
+ExecStop=/path/to/umount-bitlocker.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
